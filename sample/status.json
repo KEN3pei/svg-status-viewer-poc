@@ -1,92 +1,93 @@
 {
-  "generatedAt": "2026-08-01T04:52:36.346Z",
+  "generatedAt": "2026-08-02T02:21:18.502Z",
+  "collector": {
+    "source": "kubernetes",
+    "state": "unknown",
+    "message": "The connection to the server 192.168.10.105:6443 was refused - did you specify the right host or port?"
+  },
   "items": [
     {
       "id": "controlplane01",
       "kind": "component",
-      "state": "ok",
-      "message": "Node Ready",
+      "state": "unknown",
+      "message": "The connection to the server 192.168.10.105:6443 was refused - did you specify the right host or port?",
       "source": "kubernetes",
-      "observedAt": "2026-08-01T04:52:36.346Z",
+      "observedAt": "2026-08-02T02:21:18.502Z",
       "appearance": {
-        "preset": "running"
+        "preset": "unknown"
       },
       "resource": {
         "kind": "Node",
         "name": "controlplane-01"
       },
       "details": {
-        "found": true,
-        "ready": true,
-        "readyStatus": "True",
-        "unschedulable": false,
-        "kubeletVersion": "v1.33.1"
+        "collectorError": true,
+        "command": "kubectl get nodes -o json",
+        "stderr": "The connection to the server 192.168.10.105:6443 was refused - did you specify the right host or port?\n",
+        "exitCode": 1
       }
     },
     {
       "id": "worker01",
       "kind": "component",
-      "state": "ok",
-      "message": "Node Ready",
+      "state": "unknown",
+      "message": "The connection to the server 192.168.10.105:6443 was refused - did you specify the right host or port?",
       "source": "kubernetes",
-      "observedAt": "2026-08-01T04:52:36.346Z",
+      "observedAt": "2026-08-02T02:21:18.502Z",
       "appearance": {
-        "preset": "running"
+        "preset": "unknown"
       },
       "resource": {
         "kind": "Node",
         "name": "worker01"
       },
       "details": {
-        "found": true,
-        "ready": true,
-        "readyStatus": "True",
-        "unschedulable": false,
-        "kubeletVersion": "v1.33.1"
+        "collectorError": true,
+        "command": "kubectl get nodes -o json",
+        "stderr": "The connection to the server 192.168.10.105:6443 was refused - did you specify the right host or port?\n",
+        "exitCode": 1
       }
     },
     {
       "id": "worker02",
       "kind": "component",
-      "state": "ok",
-      "message": "Node Ready",
+      "state": "unknown",
+      "message": "The connection to the server 192.168.10.105:6443 was refused - did you specify the right host or port?",
       "source": "kubernetes",
-      "observedAt": "2026-08-01T04:52:36.346Z",
+      "observedAt": "2026-08-02T02:21:18.502Z",
       "appearance": {
-        "preset": "running"
+        "preset": "unknown"
       },
       "resource": {
         "kind": "Node",
         "name": "worker02"
       },
       "details": {
-        "found": true,
-        "ready": true,
-        "readyStatus": "True",
-        "unschedulable": false,
-        "kubeletVersion": "v1.33.1"
+        "collectorError": true,
+        "command": "kubectl get nodes -o json",
+        "stderr": "The connection to the server 192.168.10.105:6443 was refused - did you specify the right host or port?\n",
+        "exitCode": 1
       }
     },
     {
       "id": "worker03",
       "kind": "component",
-      "state": "ok",
-      "message": "Node Ready",
+      "state": "unknown",
+      "message": "The connection to the server 192.168.10.105:6443 was refused - did you specify the right host or port?",
       "source": "kubernetes",
-      "observedAt": "2026-08-01T04:52:36.346Z",
+      "observedAt": "2026-08-02T02:21:18.502Z",
       "appearance": {
-        "preset": "running"
+        "preset": "unknown"
       },
       "resource": {
         "kind": "Node",
         "name": "worker03"
       },
       "details": {
-        "found": true,
-        "ready": true,
-        "readyStatus": "True",
-        "unschedulable": false,
-        "kubeletVersion": "v1.33.1"
+        "collectorError": true,
+        "command": "kubectl get nodes -o json",
+        "stderr": "The connection to the server 192.168.10.105:6443 was refused - did you specify the right host or port?\n",
+        "exitCode": 1
       }
     }
   ]

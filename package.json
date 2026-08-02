@@ -3,9 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "packageManager": "pnpm@10.20.0",
   "scripts": {
+    "build": "tsc",
     "collect:k8s": "node collector/collect-k8s.mjs",
     "collect:k8s:watch": "node collector/collect-k8s.mjs --watch",
-    "start": "node server.mjs"
+    "start": "node server.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
   }
 }

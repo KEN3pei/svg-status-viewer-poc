@@ -153,6 +153,40 @@ function buildStatus(config, nodesResponse) {
   };
 }
 
+function buildCollectorErrorStatus(config, error) {
+  const observedAt = new Date().toISOString();
+  const message = error.stderr?.trim().split("\n").at(-1) || error.message || "kubectl get nodes failed";
+  const items = (config.items || []).map((item) => ({
+    id: item.id,
+    kind: item.kind || "component",
+    state: "unknown",
+    reason: "collector-error",
+    message,
+    source: "kubernetes",
+    observedAt,
+    appearance: {
+      preset: item.appearance?.unknown || "unknown"
+    },
+    resource: item.resource,
+    details: {
+      collectorError: true,
+      command: error.cmd || "kubectl get nodes -o json",
+      stderr: error.stderr || "",
+      exitCode: error.code ?? null
+    }
+  }));
+
+  return {
+    generatedAt: observedAt,
+    collector: {
+      source: "kubernetes",
+      state: "unknown",
+      message
+    },
+    items
+  };
+}
+
 async function writeStatus(config, status) {
   const outputPath = resolve(projectRoot, config.output || "sample/status.json");
   const tempPath = `${outputPath}.tmp`;
@@ -162,8 +196,16 @@ async function writeStatus(config, status) {
 
 async function collectOnce() {
   const config = await readConfig();
-  const nodes = await getNodes(config);
-  const status = buildStatus(config, nodes);
+  let status;
+
+  try {
+    const nodes = await getNodes(config);
+    status = buildStatus(config, nodes);
+  } catch (error) {
+    status = buildCollectorErrorStatus(config, error);
+    console.error(status.collector.message);
+  }
+
   await writeStatus(config, status);
   console.log(`Wrote ${config.output || "sample/status.json"} at ${status.generatedAt}`);
 }

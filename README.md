@@ -14,7 +14,7 @@ draw.ioで作ったSVGの図形IDに、`status.json` の状態を反映する最
 
 ```bash
 cd ~/Apps/svg-status-viewer-poc
-npm start
+pnpm start
 ```
 
 ブラウザで以下を開きます。
@@ -27,7 +27,10 @@ http://localhost:4173
 
 ```text
 viewer.html          ブラウザで開くビューア
-app.js               SVGとstatus.jsonを読み込み、状態を反映する処理
+src/app.ts           fetch、Refresh、Auto refresh、Component StatusのUI制御
+src/viewer-engine.ts SVG要素検索とappearance適用
+src/types.ts         status.json viewer contractの型定義
+dist/                TypeScriptのビルド成果物
 styles.css           ビューアのスタイル
 server.mjs           依存なしの静的HTTPサーバー
 collector/           status.jsonを生成するcollector
@@ -35,6 +38,24 @@ sample/homelab.svg   サンプルSVG
 sample/status.json   サンプル状態データ
 docs/adr/            技術選定のADR
 ```
+
+## TypeScript
+
+viewerはTypeScriptで実装し、ブラウザは `dist/app.js` を読み込みます。
+
+型チェック:
+
+```bash
+pnpm typecheck
+```
+
+ビルド:
+
+```bash
+pnpm build
+```
+
+`src/viewer-engine.ts` はSVG描画エンジンです。`app.ts` から `SVGElement` と `StatusItem[]` を受け取り、SVGへ状態を反映して `applied` / `missing` を返します。
 
 ## 技術選定
 
@@ -92,10 +113,10 @@ viewerはSVG export時の `width` / `height` を尊重して等倍表示しま�
 対応している `state` は以下です。
 
 ```text
-ok       緑系のアニメーション
-warning  黄
-alert    赤
-unknown  灰
+ok       正常。稼働中として緑系のアニメーションで表示する。
+warning  注意。動作はしているが劣化や一部異常がある状態として黄で表示する。
+alert    異常。明確な失敗や停止など、対応が必要な状態として赤で表示する。
+unknown  不明。監視データ未取得、collector失敗、対象未検出など、状態を判定できない場合に灰で表示する。
 ```
 
 ## Kubernetes collector
@@ -117,19 +138,19 @@ unknown  灰
 一度だけ生成する場合:
 
 ```bash
-npm run collect:k8s
+pnpm collect:k8s
 ```
 
 1分ごとに更新する場合:
 
 ```bash
-npm run collect:k8s:watch
+pnpm collect:k8s:watch
 ```
 
 更新間隔を変える場合:
 
 ```bash
-COLLECT_INTERVAL_MS=300000 npm run collect:k8s:watch
+COLLECT_INTERVAL_MS=300000 pnpm collect:k8s:watch
 ```
 
 Node状態は以下のように正規化します。
