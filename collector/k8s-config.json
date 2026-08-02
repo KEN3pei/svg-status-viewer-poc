@@ -1,0 +1,82 @@
+{
+  "kubectl": {
+    "command": "kubectl",
+    "context": "",
+    "namespace": ""
+  },
+  "output": "sample/status.json",
+  "items": [
+    {
+      "id": "controlplane01",
+      "kind": "component",
+      "source": "kubernetes",
+      "resource": {
+        "kind": "Node",
+        "name": "controlplane-01"
+      },
+      "rule": {
+        "preset": "kubernetes-node-ready"
+      },
+      "appearance": {
+        "ok": "running",
+        "warning": "warning",
+        "alert": "alert",
+        "unknown": "unknown"
+      }
+    },
+    {
+      "id": "worker01",
+      "kind": "component",
+      "source": "kubernetes",
+      "resource": {
+        "kind": "Node",
+        "name": "worker01"
+      },
+      "rule": {
+        "preset": "kubernetes-node-ready"
+      },
+      "appearance": {
+        "ok": "running",
+        "warning": "warning",
+        "alert": "alert",
+        "unknown": "unknown"
+      }
+    },
+    {
+      "id": "worker02",
+      "kind": "component",
+      "source": "kubernetes",
+      "resource": {
+        "kind": "Node",
+        "name": "worker02"
+      },
+      "rule": {
+        "preset": "kubernetes-node-ready"
+      },
+      "appearance": {
+        "ok": "running",
+        "warning": "warning",
+        "alert": "alert",
+        "unknown": "unknown"
+      }
+    },
+    {
+      "id": "worker03",
+      "kind": "component",
+      "source": "kubernetes",
+      "resource": {
+        "kind": "Node",
+        "name": "worker03"
+      },
+      "rule": {
+        "preset": "kubernetes-node-ready"
+      },
+      "appearance": {
+        "ok": "running",
+        "warning": "warning",
+        "alert": "alert",
+        "unknown": "unknown"
+      }
+    }
+  ]
+}

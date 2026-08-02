@@ -1,0 +1,93 @@
+{
+  "generatedAt": "2026-08-01T04:52:36.346Z",
+  "items": [
+    {
+      "id": "controlplane01",
+      "kind": "component",
+      "state": "ok",
+      "message": "Node Ready",
+      "source": "kubernetes",
+      "observedAt": "2026-08-01T04:52:36.346Z",
+      "appearance": {
+        "preset": "running"
+      },
+      "resource": {
+        "kind": "Node",
+        "name": "controlplane-01"
+      },
+      "details": {
+        "found": true,
+        "ready": true,
+        "readyStatus": "True",
+        "unschedulable": false,
+        "kubeletVersion": "v1.33.1"
+      }
+    },
+    {
+      "id": "worker01",
+      "kind": "component",
+      "state": "ok",
+      "message": "Node Ready",
+      "source": "kubernetes",
+      "observedAt": "2026-08-01T04:52:36.346Z",
+      "appearance": {
+        "preset": "running"
+      },
+      "resource": {
+        "kind": "Node",
+        "name": "worker01"
+      },
+      "details": {
+        "found": true,
+        "ready": true,
+        "readyStatus": "True",
+        "unschedulable": false,
+        "kubeletVersion": "v1.33.1"
+      }
+    },
+    {
+      "id": "worker02",
+      "kind": "component",
+      "state": "ok",
+      "message": "Node Ready",
+      "source": "kubernetes",
+      "observedAt": "2026-08-01T04:52:36.346Z",
+      "appearance": {
+        "preset": "running"
+      },
+      "resource": {
+        "kind": "Node",
+        "name": "worker02"
+      },
+      "details": {
+        "found": true,
+        "ready": true,
+        "readyStatus": "True",
+        "unschedulable": false,
+        "kubeletVersion": "v1.33.1"
+      }
+    },
+    {
+      "id": "worker03",
+      "kind": "component",
+      "state": "ok",
+      "message": "Node Ready",
+      "source": "kubernetes",
+      "observedAt": "2026-08-01T04:52:36.346Z",
+      "appearance": {
+        "preset": "running"
+      },
+      "resource": {
+        "kind": "Node",
+        "name": "worker03"
+      },
+      "details": {
+        "found": true,
+        "ready": true,
+        "readyStatus": "True",
+        "unschedulable": false,
+        "kubeletVersion": "v1.33.1"
+      }
+    }
+  ]
+}

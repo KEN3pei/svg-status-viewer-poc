@@ -1,0 +1,11 @@
+{
+  "name": "svg-status-viewer-poc",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "collect:k8s": "node collector/collect-k8s.mjs",
+    "collect:k8s:watch": "node collector/collect-k8s.mjs --watch",
+    "start": "node server.mjs"
+  }
+}

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SVG Status Viewer PoC</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <h1>SVG Status Viewer PoC</h1>
+        <p>draw.io SVG の図形IDに status.json の状態を反映します。</p>
+      </div>
+      <div class="toolbar">
+        <button id="refresh-button" type="button">Refresh</button>
+        <label>
+          Auto refresh
+          <input id="auto-refresh" type="checkbox" checked />
+        </label>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="diagram-panel" aria-label="diagram">
+        <div id="diagram" class="diagram"></div>
+      </section>
+
+      <aside class="status-panel" aria-label="component status">
+        <h2>Component Status</h2>
+        <div id="last-updated" class="last-updated">Loading...</div>
+        <ul id="status-list" class="status-list"></ul>
+      </aside>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
