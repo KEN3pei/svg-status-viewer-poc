@@ -2,6 +2,8 @@
 
 draw.ioで作ったSVGの図形IDに、`status.json` の状態を反映する最小PoCです。
 
+<img width="1435" height="748" alt="スクリーンショット 2026-08-02 11 16 35" src="https://github.com/user-attachments/assets/59b00a2a-cc5d-47d1-85d3-0e2a89321121" />
+
 ## 目的
 
 - draw.ioでは図の配置と図形IDだけを管理する
